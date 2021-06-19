@@ -245,62 +245,60 @@
     </head>
     
     <body>
-        <div>
-            <header>Infogare - <abbr title="Démonstration de faisabilité">POC</abbr></header>
-            <section>
-                <button type="button" onclick="toggleDisp()">Afficher/Cacher les zones</button><button type="button" onclick="toggleDisp(true);save();">Enregistrer (.png)</button>
-                <div id="containerParcoursDepart">
-                    <p><span class="value" contenteditable id="heure">00h00</span></p>
+        <header>Infogare - <abbr title="Démonstration de faisabilité">POC</abbr></header>
+        <section>
+            <button type="button" onclick="toggleDisp()">Afficher/Cacher les zones</button><button type="button" onclick="toggleDisp(true);save();">Enregistrer (.png)</button>
+            <div id="containerParcoursDepart">
+                <p><span class="value" contenteditable id="heure">00h00</span></p>
 
-                    <div id="typeNum">
-                        <p class="inline"><span class="value" contenteditable id="destination">Entzheim Aéroport</span></p>
-                        <p class="inline"><span class="value" contenteditable id="typeTrain">TER</span></p>
-                        <p class="inline"><span class="value" contenteditable id="numTrain">86770</span></p>
-                    </div>
-                    <p><span class="value stops" contenteditable id="stop0">Molsheim</span></p>
-                    <p><span class="value stops" contenteditable id="stop1">Mutzig</span></p>
-                    <p><span class="value stops" contenteditable id="stop2">Gresswiller</span></p>
-                    <p><span class="value stops" contenteditable id="stop3">Urmatt</span></p>
-                    <p><span class="value stops" contenteditable id="stop4">Lutzelhouse</span></p>
-                    <p><span class="value stops" contenteditable id="stop5">Wisches</span></p>
-                    <p><span class="value stops" contenteditable id="stop6">Russ Hersbach</span></p>
-                    <p><span class="value stops" contenteditable id="stop7">Schirmeck la Broque</span></p>
-                    <p><span class="value stops" contenteditable id="stop8">Rothau</span></p>
-                    <p><span class="value stops" contenteditable id="stop9">Fouday</span></p>
-                    <div id="dest">
-                        <p class="inline"><span class="value" contenteditable id="stopDest">Entzheim Aéroport</span></p>
-                    </div>
-
-                    <p><span class="value" contenteditable id="informations">Assurez-vous de n'avoir rien oublié dans le train</span></p>
-
-                    <p><span class="value heure" contenteditable id="currentHeure">00:00</span></p>
-                    <p><span class="value heure" contenteditable id="currentSec">00</span></p>
+                <div id="typeNum">
+                    <p class="inline"><span class="value" contenteditable id="destination">Entzheim Aéroport</span></p>
+                    <p class="inline"><span class="value" contenteditable id="typeTrain">TER</span></p>
+                    <p class="inline"><span class="value" contenteditable id="numTrain">86770</span></p>
                 </div>
-                <!--<div id="containerParcoursArrive">
-                    <p><span class="value" contenteditable id="heure">00h00</span></p>
+                <p><span class="value stops" contenteditable id="stop0">Molsheim</span></p>
+                <p><span class="value stops" contenteditable id="stop1">Mutzig</span></p>
+                <p><span class="value stops" contenteditable id="stop2">Gresswiller</span></p>
+                <p><span class="value stops" contenteditable id="stop3">Urmatt</span></p>
+                <p><span class="value stops" contenteditable id="stop4">Lutzelhouse</span></p>
+                <p><span class="value stops" contenteditable id="stop5">Wisches</span></p>
+                <p><span class="value stops" contenteditable id="stop6">Russ Hersbach</span></p>
+                <p><span class="value stops" contenteditable id="stop7">Schirmeck la Broque</span></p>
+                <p><span class="value stops" contenteditable id="stop8">Rothau</span></p>
+                <p><span class="value stops" contenteditable id="stop9">Fouday</span></p>
+                <div id="dest">
+                    <p class="inline"><span class="value" contenteditable id="stopDest">Entzheim Aéroport</span></p>
+                </div>
 
-                    <div id="typeNum">
-                        <p class="inline"><span class="value" contenteditable id="destination">Lyon</span></p>
-                        <p class="inline"><span class="value" contenteditable id="typeTrain">TER</span></p>
-                        <p class="inline"><span class="value" contenteditable id="numTrain">86770</span></p>
-                    </div>
-                    <p><span class="value stops" contenteditable id="stop0">Molsheim</span></p>
-                    <p><span class="value stops" contenteditable id="stop1">Mutzig</span></p>
-                    <p><span class="value stops" contenteditable id="stop2">Gresswiller</span></p>
-                    <p><span class="value stops" contenteditable id="stop3">Urmatt</span></p>
-                    <p><span class="value stops" contenteditable id="stop4">Lutzelhouse</span></p>
-                    <p><span class="value stops" contenteditable id="stop5">Wisches</span></p>
-                    <p><span class="value stops" contenteditable id="stop6">Russ Hersbach</span></p>
-                    <p><span class="value stops" contenteditable id="stop7">Schirmeck la Broque</span></p>
-                    <p><span class="value stops" contenteditable id="stop8">Rothau</span></p>
-                    <p><span class="value stops" contenteditable id="stop9">Fouday</span></p>
-                    <p><span class="value stops" contenteditable id="stopDest">Lyon</span></p>
+                <p><span class="value" contenteditable id="informations">Assurez-vous de n'avoir rien oublié dans le train</span></p>
 
-                    <p><span class="value heure" contenteditable id="currentHeure"></span></p>
-                    <p><span class="value heure" contenteditable id="currentSec"></span></p>
-                    <p><span class="value" contenteditable id="informations">Assurez-vous de n'avoir rien oublié dans le train</span></p>
-                </div>-->
+                <p><span class="value heure" contenteditable id="currentHeure">00:00</span></p>
+                <p><span class="value heure" contenteditable id="currentSec">00</span></p>
             </div>
+            <!--<div id="containerParcoursArrive">
+                <p><span class="value" contenteditable id="heure">00h00</span></p>
+
+                <div id="typeNum">
+                    <p class="inline"><span class="value" contenteditable id="destination">Lyon</span></p>
+                    <p class="inline"><span class="value" contenteditable id="typeTrain">TER</span></p>
+                    <p class="inline"><span class="value" contenteditable id="numTrain">86770</span></p>
+                </div>
+                <p><span class="value stops" contenteditable id="stop0">Molsheim</span></p>
+                <p><span class="value stops" contenteditable id="stop1">Mutzig</span></p>
+                <p><span class="value stops" contenteditable id="stop2">Gresswiller</span></p>
+                <p><span class="value stops" contenteditable id="stop3">Urmatt</span></p>
+                <p><span class="value stops" contenteditable id="stop4">Lutzelhouse</span></p>
+                <p><span class="value stops" contenteditable id="stop5">Wisches</span></p>
+                <p><span class="value stops" contenteditable id="stop6">Russ Hersbach</span></p>
+                <p><span class="value stops" contenteditable id="stop7">Schirmeck la Broque</span></p>
+                <p><span class="value stops" contenteditable id="stop8">Rothau</span></p>
+                <p><span class="value stops" contenteditable id="stop9">Fouday</span></p>
+                <p><span class="value stops" contenteditable id="stopDest">Lyon</span></p>
+
+                <p><span class="value heure" contenteditable id="currentHeure"></span></p>
+                <p><span class="value heure" contenteditable id="currentSec"></span></p>
+                <p><span class="value" contenteditable id="informations">Assurez-vous de n'avoir rien oublié dans le train</span></p>
+            </div>-->
             <details>
                 <summary><b>Comparaison avec affichage réel</b></summary>
                 <p>
