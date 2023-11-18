@@ -206,6 +206,7 @@ span:focus {
 	word-break: break-all;
 	height: 20px;
 	overflow: hidden;
+	padding-right: 5px;
 }
 button {
 	background-color: #003a79;
