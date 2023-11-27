@@ -13,7 +13,7 @@
     <body>
         <header>Infogare - <abbr title="Démonstration de faisabilité">POC</abbr></header>
         <main>
-            <button type="button" onclick="toggleDisp()">Afficher/Cacher les zones</button><button type="button" onclick="toggleDisp(true);save();">Enregistrer (.png)</button>
+            <button type="button" onclick="toggleAreas()">Afficher/Cacher les zones</button><button type="button" onclick="toggleAreas(true);save();">Enregistrer (.png)</button>
             <div id="containerParcoursDepart">
                 <p><span class="value" contenteditable id="heure">00h00</span></p>
 
@@ -41,6 +41,7 @@
                 <p><span class="value heure" contenteditable id="currentHeure">00:00</span></p>
                 <p><span class="value heure" contenteditable id="currentSec">00</span></p>
             </div>
+            
             <!--<div id="containerParcoursArrive">
                 <p><span class="value" contenteditable id="heure">00h00</span></p>
 
@@ -65,6 +66,7 @@
                 <p><span class="value heure" contenteditable id="currentSec"></span></p>
                 <p><span class="value" contenteditable id="informations">Assurez-vous de n'avoir rien oublié dans le train</span></p>
             </div>-->
+            
             <details>
                 <summary><b>Comparaison avec affichage réel</b></summary>
                 <p>
@@ -98,47 +100,7 @@
         </main>
         <script src="html2canvas.min.js"></script>
         <script>
-            var today = new Date();
-            if (today.getHours().toString().length<2) {
-                var houreMin = "0" + today.getHours() + ":";
-            } else {
-                var houreMin = today.getHours() + ":";
-            }
-            if (today.getMinutes().toString().length<2) {
-                houreMin += "0" + today.getMinutes();
-            } else {
-                houreMin += today.getMinutes();
-            }
-            if (today.getSeconds().toString().length<2) {
-                seconde = "0" + today.getSeconds();
-            } else {
-                seconde = today.getSeconds();
-            }
-            document.getElementById('currentHeure').innerHTML = houreMin;
-            document.getElementById('currentSec').innerHTML = seconde;
-
-            document.addEventListener('keydown', function(event) {
-                contentHeure = document.getElementById('currentHeure').innerHTML;
-                if (contentHeure.length>5) {
-                    overflow = contentHeure.slice(-1);
-                    contentHeure = contentHeure.substring(0, 5);
-                    document.getElementById('currentHeure').innerHTML = contentHeure;
-                    document.getElementById('currentSec').innerHTML = overflow;
-                    document.getElementById('currentSec').focus();
-                    //PERMET D'ECRIRE L'HEURE (heure+minute+seconde) SANS CHANGER DE SPAN
-                    range = document.createRange();
-                    range.selectNodeContents(document.getElementById('currentSec'));
-                    range.collapse(false);
-                    selection = window.getSelection();
-                    selection.removeAllRanges();
-                    selection.addRange(range);
-                }
-                contentDest = document.getElementById('stopDest').innerHTML;
-                if (contentDest == "") {
-                    document.getElementById('stopDest').innerHTML = "&nbsp;";
-                }
-            });
-
+            // Enregistrement de l'image créée
             function save() {
                 window.scrollTo(0, 0);
                 html2canvas(document.querySelector("#containerParcoursDepart")).then(canvas => {
@@ -148,24 +110,22 @@
             function saveAs(uri, filename) {
                 var link = document.createElement('a');
                 if (typeof link.download === 'string') {
+                    // Pour Firefox (nécessite de créer un lien)
                     link.href = uri;
                     link.download = filename;
-                    //Firefox requires the link to be in the body
                     document.body.appendChild(link);
-                    //simulate click
                     link.click();
-                    //remove the link when done
                     document.body.removeChild(link);
                 } else {
                     window.open(uri);
                 }
             }
             var displayArea = false;
-            function toggleDisp(state) {
+            function toggleAreas(state = null) {
                 if (state != null) {
                     displayArea = state;
                 }
-                valdisp = document.getElementsByClassName('value');
+                var valdisp = document.getElementsByClassName('value');
                 if (displayArea) {
                     for (disp = 0; disp < valdisp.length; disp++) {
                         valdisp[disp].style.outline = "";
@@ -179,6 +139,52 @@
                 }
                 
             }
+
+            
+            var today = new Date();
+            var hourMin = "";
+            if (today.getHours().toString().length<2)
+                hourMin = "0" + today.getHours() + ":";
+            else
+                hourMin = today.getHours() + ":";
+            
+            if (today.getMinutes().toString().length<2)
+                hourMin += "0" + today.getMinutes();
+            else
+                hourMin += today.getMinutes();
+
+            var seconde;
+            if (today.getSeconds().toString().length<2) {
+                seconde = "0" + today.getSeconds();
+            } else {
+                seconde = today.getSeconds();
+            }
+            document.getElementById('currentHeure').innerHTML = hourMin;
+            document.getElementById('currentSec').innerHTML = seconde;
+
+            document.addEventListener('keydown', function(event) 
+                
+                contentHeure = document.getElementById('currentHeure').innerHTML;
+                if (contentHeure.length>5) {
+                    // PERMET D'ECRIRE L'HEURE (heure+minute+seconde) SANS CHANGER DE SPAN
+                    overflow = contentHeure.slice(-1);
+                    contentHeure = contentHeure.substring(0, 5);
+                    document.getElementById('currentHeure').innerHTML = contentHeure;
+                    document.getElementById('currentSec').innerHTML = overflow;
+                    document.getElementById('currentSec').focus();
+                    range = document.createRange();
+                    range.selectNodeContents(document.getElementById('currentSec'));
+                    range.collapse(false);
+                    selection = window.getSelection();
+                    selection.removeAllRanges();
+                    selection.addRange(range);
+                }
+            
+                contentDest = document.getElementById('stopDest').innerHTML;
+                if (contentDest == "") {
+                    document.getElementById('stopDest').innerHTML = "&nbsp;";
+                }
+            });
         </script>
     </body>
 </html>
