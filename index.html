@@ -12,7 +12,7 @@
     
     <body>
         <header>Infogare - <abbr title="Démonstration de faisabilité">POC</abbr></header>
-        <section>
+        <main>
             <button type="button" onclick="toggleDisp()">Afficher/Cacher les zones</button><button type="button" onclick="toggleDisp(true);save();">Enregistrer (.png)</button>
             <div id="containerParcoursDepart">
                 <p><span class="value" contenteditable id="heure">00h00</span></p>
@@ -95,7 +95,7 @@
                     <p><span class="heure" contenteditable id="currentSec"></span></p>
                 </div>
             </details>
-        </section>
+        </main>
         <script src="html2canvas.min.js"></script>
         <script>
             var today = new Date();
