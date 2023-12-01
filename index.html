@@ -172,7 +172,7 @@
                     contentHeure = document.getElementById('currentHeure').innerText;
                     contentHeureClean = contentHeure.replace("<br>", "");
                     console.log(contentHeureClean);
-                    if (contentHeure.length>=5) {
+                    if (contentHeure.length>5) {
                         // PERMET D'ECRIRE L'HEURE (heure+minute+seconde) SANS CHANGER DE SPAN
                         overflow = contentHeure.slice(-1);
                         contentHeure = contentHeure.substring(0, 5);
