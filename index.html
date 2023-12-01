@@ -163,9 +163,11 @@
             document.getElementById('currentHeure').innerHTML = hourMin;
             document.getElementById('currentSec').innerHTML = seconde;
 
-            document.addEventListener('keydown', function(event) 
+            
+            contentHeure = document.getElementById('currentHeure').innerHTML;
+            document.getElementById('currentHeure').addEventListener('keydown', function(event) 
             {
-                contentHeure = document.getElementById('currentHeure').innerHTML;
+                console.log(contentHeure.length);
                 if (contentHeure.length>5) {
                     // PERMET D'ECRIRE L'HEURE (heure+minute+seconde) SANS CHANGER DE SPAN
                     overflow = contentHeure.slice(-1);
@@ -180,8 +182,12 @@
                     selection.removeAllRanges();
                     selection.addRange(range);
                 }
+            });
+
             
-                contentDest = document.getElementById('stopDest').innerHTML;
+            contentDest = document.getElementById('stopDest').innerHTML;
+            document.getElementById('stopDest').addEventListener('keydown', function(event) 
+            {
                 if (contentDest == "") {
                     document.getElementById('stopDest').innerHTML = "&nbsp;";
                 }
