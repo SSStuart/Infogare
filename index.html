@@ -164,9 +164,9 @@
             document.getElementById('currentSec').innerHTML = seconde;
 
             
-            contentHeure = document.getElementById('currentHeure').innerHTML;
             document.getElementById('currentHeure').addEventListener('keydown', function(event) 
             {
+                contentHeure = document.getElementById('currentHeure').innerHTML;
                 console.log(contentHeure.length);
                 if (contentHeure.length>5) {
                     // PERMET D'ECRIRE L'HEURE (heure+minute+seconde) SANS CHANGER DE SPAN
@@ -185,9 +185,9 @@
             });
 
             
-            contentDest = document.getElementById('stopDest').innerHTML;
             document.getElementById('stopDest').addEventListener('keydown', function(event) 
             {
+                contentDest = document.getElementById('stopDest').innerHTML;
                 if (contentDest == "") {
                     document.getElementById('stopDest').innerHTML = "&nbsp;";
                 }
