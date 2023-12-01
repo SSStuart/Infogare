@@ -166,21 +166,26 @@
             
             document.getElementById('currentHeure').addEventListener('keydown', function(event) 
             {
-                contentHeure = document.getElementById('currentHeure').innerHTML;
-                console.log(contentHeure.length);
-                if (contentHeure.length>5) {
-                    // PERMET D'ECRIRE L'HEURE (heure+minute+seconde) SANS CHANGER DE SPAN
-                    overflow = contentHeure.slice(-1);
-                    contentHeure = contentHeure.substring(0, 5);
-                    document.getElementById('currentHeure').innerHTML = contentHeure;
-                    document.getElementById('currentSec').innerHTML = overflow;
-                    document.getElementById('currentSec').focus();
-                    range = document.createRange();
-                    range.selectNodeContents(document.getElementById('currentSec'));
-                    range.collapse(false);
-                    selection = window.getSelection();
-                    selection.removeAllRanges();
-                    selection.addRange(range);
+                if (event.keyCode == 8 || event.keyCode == 46) {
+                    contentHeure = document.getElementById('currentHeure').innerText = "";
+                } else {
+                    contentHeure = document.getElementById('currentHeure').innerText;
+                    contentHeureClean = contentHeure.replace("<br>", "");
+                    console.log(contentHeureClean);
+                    if (contentHeure.length>=5) {
+                        // PERMET D'ECRIRE L'HEURE (heure+minute+seconde) SANS CHANGER DE SPAN
+                        overflow = contentHeure.slice(-1);
+                        contentHeure = contentHeure.substring(0, 5);
+                        document.getElementById('currentHeure').innerHTML = contentHeure;
+                        document.getElementById('currentSec').innerHTML = overflow;
+                        document.getElementById('currentSec').focus();
+                        range = document.createRange();
+                        range.selectNodeContents(document.getElementById('currentSec'));
+                        range.collapse(false);
+                        selection = window.getSelection();
+                        selection.removeAllRanges();
+                        selection.addRange(range);
+                    }
                 }
             });
 
