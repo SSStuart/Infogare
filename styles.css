@@ -1,3 +1,13 @@
+[data-theme="auto"] {
+	color-scheme: light dark;
+}
+[data-theme="dark"] {
+	color-scheme: dark;
+}
+[data-theme="light"] {
+	color-scheme: light;
+}
+
 @font-face {
 	font-family: AchemineBold;
 	src: url("font/acheminb-webfont.ttf");
@@ -12,14 +22,12 @@
 }
 body {
 	font-family: Achemine;
-	background-color: #222;
-	color: #f4ecf4;
 	margin: 0 0;
 }
 header {
-		background-color: #004494;
-		font-size: 2rem;
-		padding: 1rem;
+	background-color: #004494;
+	font-size: 2rem;
+	padding: 1rem;
 }
 main {
 	margin: 20px;
